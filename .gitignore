@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+/.vs
+/LicentaTest/.vs/LicentaTest

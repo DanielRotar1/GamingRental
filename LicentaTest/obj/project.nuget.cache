@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1WfiiEH7z84GRKSBVo50d10KeecXNJzzYf2kQbUVcJot3Zb6hOIwoWlHSlmmVBtGIonE782VwXx+gQYQgJY53Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\INTEL\\source\\repos\\LicentaTest\\LicentaTest\\LicentaTest.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\INTEL\\.nuget\\packages\\fsharp.core\\8.0.200\\fsharp.core.8.0.200.nupkg.sha512"
+  ],
+  "logs": []
+}
