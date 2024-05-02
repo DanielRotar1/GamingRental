@@ -1,0 +1,15 @@
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\bin\Debug\net8.0\LicentaPartea2.DataAccess.deps.json
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\bin\Debug\net8.0\LicentaPartea2.DataAccess.runtimeconfig.json
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\bin\Debug\net8.0\LicentaPartea2.DataAccess.dll
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\bin\Debug\net8.0\LicentaPartea2.DataAccess.pdb
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\obj\Debug\net8.0\LicentaPartea2.DataAccess.csproj.AssemblyReference.cache
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\obj\Debug\net8.0\LicentaPartea2.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\obj\Debug\net8.0\LicentaPartea2.DataAccess.AssemblyInfoInputs.cache
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\obj\Debug\net8.0\LicentaPartea2.DataAccess.AssemblyInfo.cs
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\obj\Debug\net8.0\LicentaPartea2.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\obj\Debug\net8.0\LicentaPartea2.DataAccess.sourcelink.json
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\obj\Debug\net8.0\LicentaPartea2.DataAccess.dll
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\obj\Debug\net8.0\refint\LicentaPartea2.DataAccess.dll
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\obj\Debug\net8.0\LicentaPartea2.DataAccess.pdb
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\obj\Debug\net8.0\LicentaPartea2.DataAccess.genruntimeconfig.cache
+C:\Users\INTEL\source\repos\LicentaTest\LicentaPartea2.DataAccess\obj\Debug\net8.0\ref\LicentaPartea2.DataAccess.dll
