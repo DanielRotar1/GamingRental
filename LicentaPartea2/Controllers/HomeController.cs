@@ -35,7 +35,7 @@ namespace LicentaPartea2.Controllers
         {
             return View();
         }
-        public IActionResult Inregistrare()
+        public IActionResult Register()
         {
             return View();
         }

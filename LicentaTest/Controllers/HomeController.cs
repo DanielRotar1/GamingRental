@@ -1,3 +1,5 @@
+using LicentaTest.Data.Entities;
+using LicentaTest.Data.Repositories;
 using LicentaTest.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -8,7 +10,7 @@ namespace LicentaTest.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IRepository<RentalAgreement> repository)
         {
             _logger = logger;
         }
@@ -17,7 +19,7 @@ namespace LicentaTest.Controllers
         {
             return View();
         }
-        public IActionResult Inregistrare(Object user)
+        public IActionResult Register(Object user)
         {
             return View();
         }
