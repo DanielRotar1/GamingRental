@@ -7,7 +7,7 @@ namespace LicentaTest.Models.Register
     public class AddMyUserModel : PageModel
     {
         [ProtectedPersonalData]
-        [Required(ErrorMessage = "pune ba nume")]
+        [Required(ErrorMessage = "Please choose a name")]
         public string? UserName { get; set; }
 
         [Required]

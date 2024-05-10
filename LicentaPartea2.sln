@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LicentaPartea2", "LicentaPartea2\LicentaPartea2.csproj", "{6D4F9D1E-3650-4E49-A6E2-94677394C798}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicentaTest", "LicentaTest\LicentaTest.csproj", "{3DAD5B90-EE11-4F66-93F2-B2F27CB5B7FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LicentaTest", "LicentaTest\LicentaTest.csproj", "{3DAD5B90-EE11-4F66-93F2-B2F27CB5B7FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
