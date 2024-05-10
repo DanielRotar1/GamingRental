@@ -1,0 +1,52 @@
+﻿@using LicentaTest.Models.Rentals
+@model CarRentalModel
+@{
+    ViewData["Title"] = "CarRental";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Completeaza datele de mai jos pentru a te loga pe site.</p>
+
+<form class="login" asp-controller="Rentals" asp-action="RentCar" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-4">
+                <label asp-for="CarType"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="CarType" class="form-control" type="text" />
+            </div>
+            <span asp-validation-for="CarType" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-4">
+                <label asp-for="RentalStartDate"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="RentalStartDate" class="form-control" type="date" />
+            </div>
+            <span asp-validation-for="RentalStartDate" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-4">
+                <label asp-for="RentalEndDate"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="RentalEndDate" class="form-control" type="date" />
+            </div>
+            <span asp-validation-for="RentalEndDate" class="text-danger"></span>
+        </div>
+    </div>
+
+    <input type="submit" name="rent" id="rent" value="Inchiriaza">
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
