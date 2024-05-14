@@ -20,13 +20,12 @@ namespace LicentaTest.Controllers
 
         public ActionResult Index()
         {
-            var rentals = _repository.GetAll().Where(x => x.UserId == _userManager.GetUserId(this.User));
-            
-            //if (rentals.Any())
-            //{
-            //    View("RentalList", rentals);
-            //}
+            var rentals = _repository.GetAll().Where(x => x.UserId == _userManager.GetUserId(this.User)).ToList();
+            return View(rentals);
+        }
 
+        public ActionResult AddNewRental()
+        {
             return View();
         }
 

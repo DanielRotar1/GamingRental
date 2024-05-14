@@ -1,6 +1,4 @@
 ﻿using LicentaTest.Data.Entities.Common;
-using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
 
 namespace LicentaTest.Data.Entities
 {
