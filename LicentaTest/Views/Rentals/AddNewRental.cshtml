@@ -1,5 +1,9 @@
-﻿@using LicentaTest.Models.Rentals
+﻿@using LicentaTest.Data.Entities
+@using LicentaTest.Data.Repositories
+@using LicentaTest.Models.Rentals
 @model CarRentalModel
+@inject IRepository<CarType> carTypeRepository
+
 @{
     ViewData["Title"] = "CarRental";
 }
@@ -12,12 +16,12 @@
     <div class="form-group">
         <div class="row">
             <div class="col-4">
-                <label asp-for="CarType"></label>
+                <label asp-for="CarTypeId"></label>
             </div>
             <div class="col-8">
-                <input asp-for="CarType" class="form-control" type="text" />
+                <select asp-for="CarTypeId" id="Select1" class="form-select" asp-items="@(new SelectList(carTypeRepository.GetAll(), "Id", "Description"))"><option value="" selected disabled>---Selectea-za Tipul Masinii---</option></select>
             </div>
-            <span asp-validation-for="CarType" class="text-danger"></span>
+            <span asp-validation-for="CarTypeId" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group">

@@ -8,7 +8,7 @@ namespace LicentaTest.Models.Rentals
     {
         [ProtectedPersonalData]
         [Required(ErrorMessage = "Pune tip masina")]
-        public string? CarType { get; set; }
+        public Guid CarTypeId { get; set; }
 
         [Required(ErrorMessage = "pune data inceput")]
         [DataType(DataType.DateTime)]

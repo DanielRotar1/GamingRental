@@ -20,7 +20,7 @@ namespace LicentaTest.Controllers
 
         public ActionResult Index()
         {
-            var rentals = _repository.GetAll().Where(x => x.UserId == _userManager.GetUserId(this.User)).ToList();
+            var rentals = _repository.FindBy(x => x.UserId == _userManager.GetUserId(this.User), x => x.CarType).ToList();
             return View(rentals);
         }
 
@@ -37,7 +37,7 @@ namespace LicentaTest.Controllers
                 {
                     var rentalAgreement = new RentalAgreement()
                     {
-                        CarType = collection["CarType"],
+                        CarTypeId = Guid.Parse(collection["CarTypeId"]),
                         RentalStartDate = DateTime.Parse(collection["RentalStartDate"]),
                         RentalEndDate = DateTime.Parse(collection["RentalEndDate"]),
                         UserId = _userManager.GetUserId(this.User)

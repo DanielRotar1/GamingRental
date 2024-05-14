@@ -26,6 +26,7 @@ namespace LicentaTest
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddScoped<IRepository<RentalAgreement>, RentalAgreementRepository>();
+            builder.Services.AddScoped<IRepository<CarType>, CarTypeRepository>();
 
             var app = builder.Build();
 
@@ -63,6 +64,8 @@ namespace LicentaTest
             using var scope = app.ApplicationServices.GetService<IServiceScopeFactory>()?.CreateScope();
 
             var context = scope.ServiceProvider.GetRequiredService<LicentaTestDbContext>();
+
+            context.Database.Migrate();
 
             new Seeder(context).SeedData();
         }

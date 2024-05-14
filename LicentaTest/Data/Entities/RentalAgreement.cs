@@ -8,7 +8,9 @@ namespace LicentaTest.Data.Entities
 
         public string UserId { get; set; }
 
-        public string CarType { get; set; }
+        public virtual CarType CarType { get; set; }
+
+        public Guid CarTypeId { get; set; }
 
         public DateTime RentalStartDate { get; set; }
 
