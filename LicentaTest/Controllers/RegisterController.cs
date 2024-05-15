@@ -37,7 +37,7 @@ namespace LicentaTest.Controllers
                 await _userManager.ConfirmEmailAsync(user, code);
                 await _userManager.SetLockoutEnabledAsync(user, false);
 
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Login", "Login");
             }
             catch
             {
