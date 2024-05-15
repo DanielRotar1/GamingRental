@@ -1,6 +1,7 @@
 using LicentaTest.Data;
 using LicentaTest.Data.Entities;
 using LicentaTest.Data.Repositories;
+using LicentaTest.Data.Seeding;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,12 +19,14 @@ namespace LicentaTest
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            
+
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<LicentaTestDbContext>();
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddScoped<IRepository<RentalAgreement>, RentalAgreementRepository>();
+            builder.Services.AddScoped<IRepository<CarType>, CarTypeRepository>();
 
             var app = builder.Build();
 
@@ -51,7 +54,20 @@ namespace LicentaTest
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
 
+            InitializeDatabase(app);
+
             app.Run();
+        }
+
+        private static void InitializeDatabase(IApplicationBuilder app)
+        {
+            using var scope = app.ApplicationServices.GetService<IServiceScopeFactory>()?.CreateScope();
+
+            var context = scope.ServiceProvider.GetRequiredService<LicentaTestDbContext>();
+
+            context.Database.Migrate();
+
+            new Seeder(context).SeedData();
         }
     }
 }

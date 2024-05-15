@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@using LicentaTest.Data.Seeding
+@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
@@ -38,10 +39,16 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                             </li>
 
-                            @if (SignInManager.IsSignedIn(User))
+                            @if (SignInManager.IsSignedIn(User) && User.IsInRole(Role.Administrator) || User.IsInRole(Role.Client))
                             {
                                 <li class="nav-item header-elements">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Rentals" asp-action="Index">Inchiriaza masina</a>
+                                </li>
+                            }
+                            @if (SignInManager.IsSignedIn(User) && User.IsInRole(Role.Administrator))
+                            {
+                                <li class="nav-item header-elements">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="CarTypes" asp-action="Index">Adauga tip masina</a>
                                 </li>
                             }
                         </ul>

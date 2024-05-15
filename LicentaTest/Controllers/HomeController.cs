@@ -1,6 +1,7 @@
 using LicentaTest.Data.Entities;
 using LicentaTest.Data.Repositories;
 using LicentaTest.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -10,7 +11,7 @@ namespace LicentaTest.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, IRepository<RentalAgreement> repository)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
