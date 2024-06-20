@@ -1,0 +1,86 @@
+﻿@using GamingRental.Data.Entities
+@using GamingRental.Models.Rentals
+@model List<RentalAgreement>
+
+@{
+    ViewData["Title"] = "Lista ta de inchirieri";
+}
+
+<div class="container about-section">
+    <h1>@ViewData["Title"]</h1>
+    @if (!Model.Any())
+    {
+        <div>Nu ai nicio inchiriere inca.</div>
+    }
+
+    @foreach (var rental in Model)
+    {
+        <div class="row inregistrare">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <label> Id-ul comenzi de inchiriere</label>
+                </div>
+                <div class="col-4">
+                    <label>@rental.Id</label>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <label>Tipul de inchiere</label>
+                </div>
+                <div class="col-4">
+                    <label>@rental.ConsoleType.Description</label>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <label>Data inceput inchiriere </label>
+                </div>
+                <div class="col-4">
+                    <label>@rental.RentalStartDate.ToShortDateString()</label>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <label>Data sfarsit inchiriere</label>
+                </div>
+                <div class="col-4">
+                    <label>@rental.RentalEndDate.ToShortDateString()</label>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <label>Pret </label>
+                </div>
+                <div class="col-4">
+                    <label>100 lei/zi</label>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row text-right">
+                <form asp-controller="Rentals" asp-action="DeleteRental" method="post">
+                    <input type="submit" value="Sterge" class="btn btn-primary">
+                    <input hidden value="@rental.Id" name="RentalId">
+                </form>
+            </div>
+        </div>
+    }
+</div>
+<div class="container">
+    <div class="col-4">
+        <div class="row">
+            <div class="col-8">
+                <div class="button inregistrare"><a asp-area="" asp-controller="Rentals" asp-action="AddNewRental">Inchiriaza o consola</a></div>
+            </div>
+        </div>
+    </div>
+</div>
