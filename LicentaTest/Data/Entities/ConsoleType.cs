@@ -2,7 +2,7 @@
 
 namespace LicentaTest.Data.Entities
 {
-    public class CarType : TrackedModelBase
+    public class ConsoleType : TrackedModelBase
     {
         public string Description { get; set; }
     }

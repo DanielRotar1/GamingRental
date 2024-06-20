@@ -16,47 +16,47 @@ namespace LicentaTest.Data.Seeding
         public void SeedData()
         {
             this.SeedUsers();
-            this.SeedCarTypes();
+            this.SeedConsoleTypes();
             this.SeedRentalAgreements();
         }
 
-        public void SeedCarTypes()
+        public void SeedConsoleTypes()
         {
-            if (!this._context.CarTypes.Any())
+            if (!this._context.ConsoleTypes.Any())
             {
-                var carTypes = new List<CarType>()
+                var consoleTypes = new List<ConsoleType>()
                 {
-                    new CarType
+                    new ConsoleType
                     {
                         CreatedAt = DateTime.Now,
                         ModifiedAt = DateTime.Now,
                         Id = Guid.Parse("83f333c7-a36b-47b2-a1e6-30a3f8cb237e"),
-                        Description = "Mercedes"
+                        Description = "PLAYSTATION 5"
                     },
-                    new CarType
+                    new ConsoleType
                     {
                         CreatedAt = DateTime.Now,
                         ModifiedAt = DateTime.Now,
                         Id = Guid.Parse("63979d6c-089c-4929-a295-dfd4b7bcb312"),
-                        Description = "BMW"
+                        Description = "PLAYSTATION 5"
                     },
-                    new CarType
+                    new ConsoleType
                     {
                         CreatedAt = DateTime.Now,
                         ModifiedAt = DateTime.Now,
                         Id = Guid.Parse("e4545687-14a0-4369-a679-f278f4736008"),
-                        Description = "Volkswagen"
+                        Description = "PLAYSTATION 5"
                     },
-                    new CarType
+                    new ConsoleType
                     {
                         CreatedAt = DateTime.Now,
                         ModifiedAt = DateTime.Now,
                         Id = Guid.Parse("a96f13dc-36c0-426e-8e48-ef85ce96cf52"),
-                        Description = "Dacia"
+                        Description = "Xbox One "
                     }
                 };
 
-                this._context.CarTypes.AddRange(carTypes);
+                this._context.ConsoleTypes.AddRange(consoleTypes);
             }
 
             this._context.SaveChanges();
@@ -70,7 +70,7 @@ namespace LicentaTest.Data.Seeding
                 {
                     var rentalAgreement = new RentalAgreement
                     {
-                        CarTypeId = Guid.Parse("83f333c7-a36b-47b2-a1e6-30a3f8cb237e"),
+                        ConsoleTypeId = Guid.Parse("83f333c7-a36b-47b2-a1e6-30a3f8cb237e"),
                         CreatedAt = DateTime.Now,
                         ModifiedAt = DateTime.Now,
                         Id = Guid.NewGuid(),
@@ -82,7 +82,7 @@ namespace LicentaTest.Data.Seeding
                     this._context.RentalAgreements.Add(rentalAgreement);
                 }
 
-                this._context.SaveChanges();
+              this._context.SaveChanges();
             }
         }
 
@@ -110,8 +110,6 @@ namespace LicentaTest.Data.Seeding
 
                 this.SeedUser(GetDummyUser("admin", "adminadmin"), adminRole);
                 this.SeedUser(GetDummyUser("dani", "danidani"), clientRole);
-                this.SeedUser(GetDummyUser("avram", "avramavram"), clientRole);
-                this.SeedUser(GetDummyUser("diana", "dianadiana"), clientRole);
                 this._context.SaveChanges();
             }
         }

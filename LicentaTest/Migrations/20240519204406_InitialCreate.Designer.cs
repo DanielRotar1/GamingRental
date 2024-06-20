@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LicentaTest.Migrations
 {
     [DbContext(typeof(LicentaTestDbContext))]
-    [Migration("20240514155058_InitialMigrattion")]
-    partial class InitialMigrattion
+    [Migration("20240519204406_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace LicentaTest.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("LicentaTest.Data.Entities.CarType", b =>
+            modelBuilder.Entity("LicentaTest.Data.Entities.ConsoleType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace LicentaTest.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CarTypes");
+                    b.ToTable("ConsoleTypes");
                 });
 
             modelBuilder.Entity("LicentaTest.Data.Entities.RentalAgreement", b =>
@@ -52,7 +52,7 @@ namespace LicentaTest.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CarTypeId")
+                    b.Property<Guid>("ConsoleTypeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -73,7 +73,7 @@ namespace LicentaTest.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CarTypeId");
+                    b.HasIndex("ConsoleTypeId");
 
                     b.HasIndex("UserId");
 
@@ -300,9 +300,9 @@ namespace LicentaTest.Migrations
 
             modelBuilder.Entity("LicentaTest.Data.Entities.RentalAgreement", b =>
                 {
-                    b.HasOne("LicentaTest.Data.Entities.CarType", "CarType")
+                    b.HasOne("LicentaTest.Data.Entities.ConsoleType", "ConsoleType")
                         .WithMany()
-                        .HasForeignKey("CarTypeId")
+                        .HasForeignKey("ConsoleTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -312,7 +312,7 @@ namespace LicentaTest.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CarType");
+                    b.Navigation("ConsoleType");
 
                     b.Navigation("User");
                 });

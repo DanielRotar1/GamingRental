@@ -6,11 +6,11 @@ using System.Diagnostics;
 
 namespace LicentaTest.Controllers
 {
-    public class CarTypesController : Controller
+    public class ConsoleTypesController : Controller
     {
-        private readonly IRepository<CarType> _repository;
+        private readonly IRepository<ConsoleType> _repository;
 
-        public CarTypesController(IRepository<CarType> repository)
+        public ConsoleTypesController(IRepository<ConsoleType> repository)
         {
             _repository = repository;
         }
@@ -20,12 +20,12 @@ namespace LicentaTest.Controllers
             return View();
         }
 
-        public async Task<ActionResult> AddCarType(IFormCollection collection)
+        public async Task<ActionResult> AddConsoleType(IFormCollection collection)
         {
             try
             {
-                var carType = new CarType() { Description = collection["Description"] };
-                _repository.Add(carType);
+                var consoleType = new ConsoleType() { Description = collection["Description"] };
+                _repository.Add(consoleType);
                 await _repository.Save();
 
                 return RedirectToAction("Index", "Home");
@@ -36,15 +36,15 @@ namespace LicentaTest.Controllers
             }
         }
 
-        public async Task<ActionResult> DeleteCarType(IFormCollection collection)
+        public async Task<ActionResult> DeleteConsoleType(IFormCollection collection)
         {
             try
             {
-                var id = Guid.Parse(collection["CarTypeId"]);
-                var carType = _repository.FindBy(x => x.Id == id).FirstOrDefault();
-                if (carType != null)
+                var id = Guid.Parse(collection["ConsoleTypeId"]);
+                var consoleType = _repository.FindBy(x => x.Id == id).FirstOrDefault();
+                if (consoleType != null)
                 {
-                    _repository.Delete(carType);
+                    _repository.Delete(consoleType);
                 }
 
                 await _repository.Save();

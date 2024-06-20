@@ -35,24 +35,23 @@
                             <li class="nav-item header-elements">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Recenzi">Recenzi</a>
                             </li>
-                            <li class="nav-item header-elements">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-                            </li>
+                           
 
                             @if (SignInManager.IsSignedIn(User) && User.IsInRole(Role.Administrator) || User.IsInRole(Role.Client))
                             {
                                 <li class="nav-item header-elements">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Rentals" asp-action="Index">Inchiriaza masina</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Rentals" asp-action="Index">Inchiriaza consola</a>
                                 </li>
                             }
                             @if (SignInManager.IsSignedIn(User) && User.IsInRole(Role.Administrator))
                             {
                                 <li class="nav-item header-elements">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="CarTypes" asp-action="Index">Adauga tip masina</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ConsoleTypes" asp-action="Index">Comenzi tip inchiriere</a>
                                 </li>
                             }
                         </ul>
-                        <partial name="_LoginPartial" />
+                        
+                        <div class="pull-right"> <partial name="_LoginPartial" /> </div>
                     </div>
                 </div>
             </nav>

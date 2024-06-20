@@ -20,7 +20,7 @@ namespace LicentaTest.Controllers
 
         public ActionResult Index()
         {
-            var rentals = _repository.FindBy(x => x.UserId == _userManager.GetUserId(this.User), x => x.CarType).ToList();
+            var rentals = _repository.FindBy(x => x.UserId == _userManager.GetUserId(this.User), x => x.ConsoleType).ToList();
             return View(rentals);
         }
 
@@ -29,7 +29,7 @@ namespace LicentaTest.Controllers
             return View();
         }
 
-        public async Task<ActionResult> RentCar(IFormCollection collection)
+        public async Task<ActionResult> RentConsole(IFormCollection collection)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace LicentaTest.Controllers
                 {
                     var rentalAgreement = new RentalAgreement()
                     {
-                        CarTypeId = Guid.Parse(collection["CarTypeId"]),
+                        ConsoleTypeId = Guid.Parse(collection["ConsoleTypeId"]),
                         RentalStartDate = DateTime.Parse(collection["RentalStartDate"]),
                         RentalEndDate = DateTime.Parse(collection["RentalEndDate"]),
                         UserId = _userManager.GetUserId(this.User)
@@ -46,6 +46,27 @@ namespace LicentaTest.Controllers
                     _repository.Add(rentalAgreement);
                     await _repository.Save();
                 }
+
+                return RedirectToAction("Index", "Rentals");
+            }
+            catch
+            {
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
+        }
+
+        public async Task<ActionResult> DeleteRental(IFormCollection collection)
+        {
+            try
+            {
+                var id = Guid.Parse(collection["RentalId"]);
+                var rentalAgreement = _repository.FindBy(x => x.Id == id).FirstOrDefault();
+                if (rentalAgreement != null)
+                {
+                    _repository.Delete(rentalAgreement);
+                }
+
+                await _repository.Save();
 
                 return RedirectToAction("Index", "Rentals");
             }

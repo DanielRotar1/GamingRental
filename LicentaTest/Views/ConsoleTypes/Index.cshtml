@@ -1,0 +1,58 @@
+﻿@using LicentaTest.Data.Entities
+@using LicentaTest.Data.Repositories
+@using LicentaTest.Models.ConsoleTypes
+@using LicentaTest.Models.Register
+@inject IRepository<ConsoleType> consoleTypeRepository
+@{
+    ViewData["Title"] = "Comenzi asupra tipurilor de console";
+}
+@model ConsoleTypeModel
+<div class="container about-section">
+    <div class="row">
+        <h1 class="">@ViewData["Title"]</h1>
+        <p class="">Completeaza datele de mai jos, pentru a adauga sau sterge un tip consola care se poate inchiria</p>
+    </div>
+    <div class="row">
+        <!-- Formular pentru adăugarea unui nou tip de consolă -->
+        <form asp-controller="ConsoleTypes" asp-action="AddConsoleType" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Description">Adauga un tip nou de consola de gaming</label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Description" class="form-control" type="text"/>
+                </div>
+                <div class="col-4 text-center">
+                    <input type="submit" name="log" id="log" value="Adauga" class="btn btn-primary">
+                </div>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <!-- Formular pentru ștergerea unui tip de consolă -->
+        <form asp-controller="ConsoleTypes" asp-action="DeleteConsoleType" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ConsoleTypeId">Sterge un tip de consola de gaming</label>
+                </div>
+                <div class="col-4">
+                    <select asp-for="ConsoleTypeId" id="Select1" class="form-select" asp-items="@(new SelectList(consoleTypeRepository.GetAll(),"Id", "Description"))">
+                        <option value="" selected disabled>Selecteaza tipul de inchiriere</option>
+                    </select>
+                </div>
+                <div class="col-4 text-center">
+                    <input type="submit" name="del" id="del" value="Sterge" class="btn btn-primary">
+                </div>
+                <span asp-validation-for="ConsoleTypeId" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

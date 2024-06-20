@@ -13,16 +13,16 @@ namespace LicentaTest.Data
 
         public DbSet<RentalAgreement> RentalAgreements { get; set; }
 
-        public DbSet<CarType> CarTypes { get; set; }
+        public DbSet<ConsoleType> ConsoleTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
             builder.Entity<RentalAgreement>()
-                .HasOne(a => a.CarType);
+                .HasOne(a => a.ConsoleType);
 
-            builder.Entity<CarType>()
+            builder.Entity<ConsoleType>()
                 .HasKey(a => a.Id);
         }
     }

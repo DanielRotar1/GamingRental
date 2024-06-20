@@ -9,13 +9,11 @@
     <div class="row">
         @if (SignInManager.IsSignedIn(User))
         {
-            <div class="text-center">
+            <div class="text-center recenzie">
                 <h1 class="display-4">
-                    Welcome @{
-                        @User.Identity?.Name
-                    }
                 </h1>
-                <p>Inchiriaza orice aici ca te-ai logat</p>
+                <h1 class="display-4">Bine ai venit la Gaming Rental</h1>
+                <p>Gaming Rental e cea mai buna alegere pe care o poti face atunci cand ai nevoie de putina distractie.</p>
             </div>
         }
         else

@@ -26,7 +26,7 @@ namespace LicentaTest
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddScoped<IRepository<RentalAgreement>, RentalAgreementRepository>();
-            builder.Services.AddScoped<IRepository<CarType>, CarTypeRepository>();
+            builder.Services.AddScoped<IRepository<ConsoleType>, ConsoleTypeRepository>();
 
             var app = builder.Build();
 

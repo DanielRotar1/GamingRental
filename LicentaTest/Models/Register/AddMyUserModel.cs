@@ -7,18 +7,18 @@ namespace LicentaTest.Models.Register
     public class AddMyUserModel : PageModel
     {
         [ProtectedPersonalData]
-        [Required(ErrorMessage = "Please choose a name")]
+        [Required(ErrorMessage = "Te rog alege un nume")]
         public string? UserName { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Parola trebuie sa fie macar {2} si maximum {1} caractere.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Parola")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Confirma parola")]
+        [Compare("Password", ErrorMessage = "Parolele introduse nu sunt identice, incearca din nou.")]
         public string ConfirmPassword { get; set; }
     }
 }

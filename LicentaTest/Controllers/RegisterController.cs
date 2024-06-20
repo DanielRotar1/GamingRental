@@ -31,14 +31,14 @@ namespace LicentaTest.Controllers
             try
             {
                 var user = new AddUserIdentity(collection["UserName"], collection["UserName"]);
-                await _userManager.AddPasswordAsync(user, collection["Password"]);
                 var result = await _userManager.CreateAsync(user);
+                var parola = await _userManager.AddPasswordAsync(user, collection["Password"]);
                 await _userManager.AddToRoleAsync(user, Role.Client);
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 await _userManager.ConfirmEmailAsync(user, code);
                 await _userManager.SetLockoutEnabledAsync(user, false);
 
-                return RedirectToAction("Login", "Login");
+                return RedirectToAction("Index", "Login");
             }
             catch
             {

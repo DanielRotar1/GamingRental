@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LicentaTest.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigrattion : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -52,7 +52,7 @@ namespace LicentaTest.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CarTypes",
+                name: "ConsoleTypes",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -62,7 +62,7 @@ namespace LicentaTest.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CarTypes", x => x.Id);
+                    table.PrimaryKey("PK_ConsoleTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -177,7 +177,7 @@ namespace LicentaTest.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CarTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ConsoleTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RentalStartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RentalEndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -193,9 +193,9 @@ namespace LicentaTest.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_RentalAgreements_CarTypes_CarTypeId",
-                        column: x => x.CarTypeId,
-                        principalTable: "CarTypes",
+                        name: "FK_RentalAgreements_ConsoleTypes_ConsoleTypeId",
+                        column: x => x.ConsoleTypeId,
+                        principalTable: "ConsoleTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -240,9 +240,9 @@ namespace LicentaTest.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RentalAgreements_CarTypeId",
+                name: "IX_RentalAgreements_ConsoleTypeId",
                 table: "RentalAgreements",
-                column: "CarTypeId");
+                column: "ConsoleTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RentalAgreements_UserId",
@@ -278,7 +278,7 @@ namespace LicentaTest.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "CarTypes");
+                name: "ConsoleTypes");
         }
     }
 }

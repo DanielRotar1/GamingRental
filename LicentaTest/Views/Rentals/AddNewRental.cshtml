@@ -1,55 +1,72 @@
 ﻿@using LicentaTest.Data.Entities
 @using LicentaTest.Data.Repositories
 @using LicentaTest.Models.Rentals
-@model CarRentalModel
-@inject IRepository<CarType> carTypeRepository
+@model ConsoleRentalModel
+@inject IRepository<ConsoleType> consoleTypeRepository
+<div class="about-section">
+    @{
+        ViewData["Title"] = "Inchiriaza o consola";
+    }
+    <h1>@ViewData["Title"]</h1>
 
-@{
-    ViewData["Title"] = "CarRental";
-}
-<h1>@ViewData["Title"]</h1>
-
-<p>Completeaza datele de mai jos pentru a te loga pe site.</p>
-
-<form class="login light-blue" asp-controller="Rentals" asp-action="RentCar" method="post">
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-4">
-                <label asp-for="CarTypeId"></label>
+    <p>Completeaza datele de mai jos pentru a inchiria o consola.</p>
+</div>
+<div class="container align-content-center">
+    <form class="login light-blue inregistrare  " asp-controller="Rentals" asp-action="RentConsole" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <div class="row col-8">
+                <div class="col-4">
+                    <label asp-for="ConsoleTypeId">Tipul de inchiriere</label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="ConsoleTypeId" id="Select1" class="form-select" asp-items="@(new SelectList(consoleTypeRepository.GetAll(), "Id", "Description"))"><option value="" selected disabled>Selecteaza tipul de inchiriere</option></select>
+                </div>
+                <span asp-validation-for="ConsoleTypeId" class="text-danger"></span>
             </div>
-            <div class="col-8">
-                <select asp-for="CarTypeId" id="Select1" class="form-select" asp-items="@(new SelectList(carTypeRepository.GetAll(), "Id", "Description"))"><option value="" selected disabled>---Selectea-za Tipul Masinii---</option></select>
-            </div>
-            <span asp-validation-for="CarTypeId" class="text-danger"></span>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-4">
-                <label asp-for="RentalStartDate"></label>
+        <div class="form-group ">
+            <div class="row col-8">
+                <div class="col-4">
+                    <label asp-for="RentalStartDate"> Data inceput inchiriere </label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="RentalStartDate" class="form-control" type="date" />
+                </div>
+                <span asp-validation-for="RentalStartDate" class="text-danger"></span>
             </div>
-            <div class="col-8">
-                <input asp-for="RentalStartDate" class="form-control" type="date" />
-            </div>
-            <span asp-validation-for="RentalStartDate" class="text-danger"></span>
         </div>
-    </div>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-4">
-                <label asp-for="RentalEndDate"></label>
+        <div class="form-group ">
+            <div class="row col-8">
+                <div class="col-4">
+                    <label asp-for="RentalEndDate">Data sfarsit inchiriere</label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="RentalEndDate" class="form-control" type="date" />
+                </div>
+                <span asp-validation-for="RentalEndDate" class="text-danger"></span>
             </div>
-            <div class="col-8">
-                <input asp-for="RentalEndDate" class="form-control" type="date" />
-            </div>
-            <span asp-validation-for="RentalEndDate" class="text-danger"></span>
         </div>
-    </div>
 
-    <input type="submit" name="rent" id="rent" value="Inchiriaza">
-</form>
-
+        <div class="form-group">
+            <div class="row col-8">
+                <div class="col-4">
+                    <label>Pret </label>
+                </div>
+                <div class="col-8">
+                    <label>100 lei/zi</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-10 text-right">
+                    <input type="submit" name="rent" id="rent" value="Inchiriaza" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

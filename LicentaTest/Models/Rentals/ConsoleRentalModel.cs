@@ -4,18 +4,18 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LicentaTest.Models.Rentals
 {
-    public class CarRentalModel : PageModel
+    public class ConsoleRentalModel : PageModel
     {
         [ProtectedPersonalData]
-        [Required(ErrorMessage = "Pune tip masina")]
-        public Guid CarTypeId { get; set; }
+        [Required(ErrorMessage = "Alege tipul de consola")]
+        public Guid ConsoleTypeId { get; set; }
 
-        [Required(ErrorMessage = "pune data inceput")]
+        [Required(ErrorMessage = "Introdu data de inceput pentru inchiriere")]
         [DataType(DataType.DateTime)]
         [Display(Name = "RentalStartDate")]
         public DateTime RentalStartDate { get; set; }
 
-        [Required(ErrorMessage = "pune data sfarsit")]
+        [Required(ErrorMessage = "Introdu data de sfarsit pentru inchiriere")]
         [Display(Name = "RentalEndDate")]
         public DateTime RentalEndDate { get; set; }
     }
